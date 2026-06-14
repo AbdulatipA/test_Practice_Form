@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
+
 public class TestPracticeForm {
     private WebDriver webDriver;
     private PracticeFormPage practiceFormPage;
@@ -11,6 +13,7 @@ public class TestPracticeForm {
     @BeforeEach
     public void before() {
         webDriver = new ChromeDriver();
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         webDriver.manage().window().maximize();
         webDriver.get("https://demoqa.com/automation-practice-form");
         practiceFormPage = new PracticeFormPage(webDriver);
